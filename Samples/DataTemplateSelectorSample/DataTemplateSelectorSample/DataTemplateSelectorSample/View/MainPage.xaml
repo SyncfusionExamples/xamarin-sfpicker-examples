@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DataTemplateSelectorSample"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+             x:Class="DataTemplateSelectorSample.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DefaultTemplate">
+                <Grid >
+                    <Label  Text="{Binding LanguageName}" FontSize="Small" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="SepcificTemplate">
+                <Grid>
+                    <Grid>
+                    <Label Text="{Binding LanguageName}" FontSize="Small" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Grid>
+                    <Grid Padding="-80,0,0,0" >
+                        <Image  HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center"   Source="Crown.png" />
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <local:ViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <syncfusion:SfPicker x:Name="picker"
+                             SelectedItemTextColor="Black"                        
+                             SelectionBackgroundColor="Bisque"
+                             PickerMode="Dialog"        
+                             HeaderText="Select a Language" 
+                             ShowFooter="True"
+                             ShowHeader="True"                          
+                             ItemsSource="{Binding LanguageCollection }" >
+                <syncfusion:SfPicker.ItemTemplate>
+                    <local:DataTemplateSelectorViewModel DefaultTemplate="{StaticResource DefaultTemplate}" SpecificTemplate="{StaticResource SepcificTemplate}"/>
+                </syncfusion:SfPicker.ItemTemplate>
+            </syncfusion:SfPicker>
+           
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Button Text="Pick a Language" Clicked="Button_Clicked" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
