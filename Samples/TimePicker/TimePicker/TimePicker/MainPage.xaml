@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TimePicker"
+             x:Class="TimePicker.MainPage">
+
+    <!--Assign the TimePickerViewModel to BindingContext of Page-->
+    <ContentPage.BindingContext>
+        <local:TimePickerViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Button
+            Clicked="Button_Clicked"
+            HeightRequest="50"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Text="Show TimePicker"
+            WidthRequest="200" />
+
+        <!--Initialize the CustomTimePicker-->
+        <local:CustomTimePicker
+            x:Name="date"
+            ColumnHeaderHeight="40"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            PickerHeight="400"
+            PickerMode="Dialog"
+            PickerWidth="300" 
+            SelectedItem="{Binding SelectedTime,Mode=TwoWay}"/>
+    </Grid>
+
+</ContentPage>
