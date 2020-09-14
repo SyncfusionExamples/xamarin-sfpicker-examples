@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:PickerEventSample"
+             mc:Ignorable="d"
+             x:Class="PickerEventSample.MainPage">
+    <ContentPage.BindingContext>
+        <local:ColorInfo />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="Picker gets close only by clicking on the OK or Cancel button otherwise not getting close." FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Button Text="Open_Picker" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"/>
+        <syncfusion:SfPicker x:Name="picker" ShowFooter="True" Opened="picker_Opened" Closing="Picker_Closing" PickerMode="Dialog" Closed="picker_Closed" OkButtonClicked="picker_OkButtonClicked" CancelButtonClicked="picker_CancelButtonClicked"  HeaderText="Select a Color" ItemsSource="{Binding Colors}" />
+    </StackLayout>
+
+</ContentPage>
