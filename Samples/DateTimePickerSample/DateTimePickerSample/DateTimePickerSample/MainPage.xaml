@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DateTimePickerSample"
+             x:Class="DateTimePickerSample.MainPage">
+
+    <!--Assign the TimePickerViewModel to BindingContext of Page-->
+    <ContentPage.BindingContext>
+        <local:DateTimePickerViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+
+        <Button
+            Clicked="Button_Clicked"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            Text="Show DateTimePicker"
+            VerticalOptions="Center"
+            WidthRequest="200" />
+
+        <!--Initialize the CustomDateTimePicker-->
+
+        <local:CustomDateTimePicker
+            x:Name="date"
+            ColumnHeaderHeight="40"
+            HorizontalOptions="Center"
+            OnColumnLoaded="date_OnColumnLoaded"
+           
+            VerticalOptions="Center"
+            PickerHeight="300"
+            PickerMode="Dialog"
+            PickerWidth="310" SelectedItem="{Binding SelectedTime,Mode=TwoWay}"/>
+
+    </Grid>
+
+</ContentPage>
