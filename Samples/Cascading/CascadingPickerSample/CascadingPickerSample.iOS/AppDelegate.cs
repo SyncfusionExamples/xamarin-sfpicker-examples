@@ -24,7 +24,7 @@ namespace CascadingPickerSample.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+			Syncfusion.SfPicker.XForms.iOS.SfPickerRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }
