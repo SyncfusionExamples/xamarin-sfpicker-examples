@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="16.4.0.42" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="*" />
+    <PackageReference Include="Xamarin.Forms" Version="*" />
   </ItemGroup>
 </Project>
